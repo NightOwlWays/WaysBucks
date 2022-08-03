@@ -1,16 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import './styles/style.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {Login,Register,Homepage,Profile,Detailproduct,Complaincs,Category,Complainadmin,Product,Editproduct} from "./pages";
+import {Homepage,Profile,Detailproduct,Complaincs,Category,Complainadmin,Product,Editproduct} from "./pages";
 
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/homepage" element={<Homepage />} />
+        <Route path="/" element={<Homepage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/detailproduct" element={<Detailproduct />} />
         <Route path="/complaincs" element={<Complaincs />} />

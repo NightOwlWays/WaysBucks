@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import './styles/style.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {Homepage,Profile,Detailproduct,Complaincs,Category,Complainadmin,Product,Editproduct} from "./pages";
-
+import {Homepage,Profile,Detailproduct,Cart,Transaction,Addtoping,Addproduct} from "./pages";
+import { UserContext } from './context/userContext';
 
 function App() {
   return (
@@ -10,12 +10,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/detailproduct" element={<Detailproduct />} />
-        <Route path="/complaincs" element={<Complaincs />} />
-        <Route path="/category" element={<Category />} />
-        <Route path="/complainadmin" element={<Complainadmin />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/editproduct" element={<Editproduct />} />
+        <Route path="/detailproduct/:id" element={<Detailproduct />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/transaction" element={<Transaction />} />
+        <Route path="/addtoping" element={<Addtoping />} />
+        <Route path="/addproduct" element={<Addproduct />} />
       </Routes>
     </BrowserRouter>
 

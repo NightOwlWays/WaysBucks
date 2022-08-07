@@ -1,43 +1,101 @@
-import {Button, Nav} from "react-bootstrap";
-import logo from "../../components/img/frame.png";
-import {Link} from "react-router-dom";
+import {Nav,NavDropdown,Form,Button} from "react-bootstrap";
+import logo from "../../components/img/WaysBucks (1) 1.png";
+import {Link,useParams,useNavigate} from "react-router-dom";
+import keranjang from "../../components/img/shopping-basket.png";
+import iprofile from "../../components/img/user 2.png";
+import iLogout from "../../components/img/logout 1.png";
+import {listtoping,listproduct} from "../../fakedata/datadummy";
+import React, {useState,useContext} from 'react';
+import { UserContext } from '../../context/userContext';
 
-const detailproduct = () => {
+const Detailproduct = () => {
+
+    const params = useParams()
+    const index = params.id
+    const [harga, setHarga] = useState(listproduct[index-1].price);
+    const [state, dispatch] = useContext(UserContext)
+    const navigate = useNavigate();
+    
+    function Add() {
+        return setHarga(harga+3000);
+    }
+
+    const handleOnSubmit = (e) => {
+        e.preventDefault();
+        const totalharga = document.getElementById("totalharga").value;
+        const data = {
+            totalharga
+        }
+        console.log(totalharga)
+    }
+
+    const logout = () => {
+        dispatch({
+          type: 'LOGOUT'
+        })
+        navigate("/");
+      }
+
+
     return (
         <>
-            <Nav className="navbar m-2 justify-content-center align-items-center m-0 p-0">
+            <Nav className="navbar m-2 justify-content-center m-0 p-0">
                 <div className="container m-0 p-0">
-                    <img src={logo} alt="logo" className="logoi" />
-                    <div className="align-items-end">
-                        <Link className="navbar-brand" to="/complaincs">Complain</Link>
-                        <Link className="navbar-brand" to="/profile">Profile</Link>
-                        <Link className="navbar-brand" to="/">Logout</Link>
+                    <Link to="/">
+                    <img src={logo} alt="logo" class="logoi" />
+                    </Link>                    
+                    <div class="d-flex justify-content-end col-6">
+                    <Link to="/cart">
+                        <img src={keranjang} alt="logo" style={{maxWidth:"35px",marginRight:"40px"}}/>
+                    </Link> 
+                        <NavDropdown className="ronded-circle" id={`offcanvasNavbarDropdown-expand-lg`}>
+                        <Link to="/profile"> 
+                            <NavDropdown.Item href="#action4"><img src={iprofile} alt="logo" style={{maxheight:"50px", marginRight:"20px"}}/> Profile</NavDropdown.Item>
+                        </Link>
+                                <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action5" onClick={logout}><img src={iLogout} alt="logo" style={{maxheight:"50px", marginRight:"20px"}}/>Logout</NavDropdown.Item>
+                        </NavDropdown>
                     </div>
                 </div>
             </Nav>
-            <div className="side1 container-fluid d-flex justify-content-center align-items-center">
-                <div className="container-homecard d-flex p-5 m-5 ">
-                    <div className="leftp">
-                        <img className="card-img-top" height="80%" src="https://asset.kompas.com/crops/g6-UOGOiNQmwu7x_VAaYszrwfJU=/28x0:468x293/750x500/data/photo/2022/02/11/620645ca6387a.png" alt="dumbmerch"/>
-                    </div>
-                    <div className="rightp">
-                        <h2 className="card-title">Mouse</h2>
-                        <p className="card-text">Stock:600</p>
-                        <ul>
-                            <li>Wireless Mouse</li>
-                            <li>Konektivitas wireless 2.4 Ghz</li>
-                            <li>Jarak wireless hingga 10 meter</li>
-                            <li>Plug and Play</li>
-                            <li>Baterai tahan hingga 12 bulan</li>
-                        </ul>
-                        <p className="card-text mb-3">Mouse Wireless Alytech AL - YSD, Hadir dengan desain 3 tombol mouser yang ringan dan mudah dibawa. Mouse ini menggunakan frekuensi radio 2.4GHz (bekerja hingga jarak 10m) dan fitur sensor canggih optik pelacakan dengan penerima USB yang kecil. Mouse ini di dukung oleh 1x baterai AA (hingga 12 bulan hidup baterai). mendukung sistem operasi windows 7,8,10 keatas, Mac OS X 10.8 atau yang lebih baru dari sistem operasi Chrome OS</p>
-                        <h5 className="card-title mb-3 text-end">Rp. 300.900</h5>
-                        <Button type="submit" className="btn-danger col-12 btn-primary ">Buy</Button>
-                    </div>
+            <div className="side1 container-fluid justify-content-center align-items-center mt-4 p-5">
+            <div className="row">
+                <div className="col-5 mt-4 ">
+                    <img className="px-3" src={require('../../components/img/'+listproduct[index-1].file)} style={{width:"100%",maxHeight:"500px"}} alt="kopi"/>
+                </div>
+                <div className="col-7">
+                    <h2 className="mb-2">{listproduct[index-1].name}</h2>
+                    <p>Rp.{listproduct[index-1].price}</p>
+                    <h5 className="coklat mb-3">Toping</h5>
+                    <Form onSubmit={handleOnSubmit}>
+                        <div className="row">
+                            {listtoping.map((item) =>
+                            <div className="col-3">
+                                <input type="checkbox" class="btn-check" id={('btn-check-outlined'+item.name)} autocomplete="off" onClick={Add}></input>
+
+                                <label class="btn btn-outline-primary" for={('btn-check-outlined'+item.name)} style={{padding:"3px"}}><img src={require('../../components/img/'+item.file)} style={{padding:"8px"}} alt="logo" class="logoi" /></label>
+
+                                <p>{item.name}</p>
+                            </div>
+                            )}
+                        </div>
+
+                        <div className="row">
+                            <h5 className="coklat col-10 mb-3">Total</h5>
+                            <Form.Group className="col-2 mb-3" controlID="formBasicEmail">
+                                <Form.Control type="number" style={{backgroundColor: "transparent",border: "none", fontWeight: "700"}} className="coklat totalharga" id="totalharga" name="totalharga" aria-describedby="totalharga" value={harga}/>
+                            </Form.Group>
+                        </div>
+
+                        <div className="mt-3 row justify-content-center">
+                            <Button type="submit" className="btn-success col-12 btn-danger mx-auto ">Add Cart</Button>
+                        </div>
+                    </Form>
                 </div>
             </div>
-            </>
+            </div>
+        </>
     );
 };
 
-export default detailproduct;
+export default Detailproduct;

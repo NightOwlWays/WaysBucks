@@ -1,5 +1,5 @@
 body{
-    background-color: #FFFBFB !important;
+    background-color: white !important;
     color: #BD0707 !important;
     text-decoration: none;
 }
@@ -25,11 +25,11 @@ a{
 }
 
 .btn-primary:hover{
-  background-color: #dc3545 !important;
+  background-color: #BD0707 !important;
 }
 
 .btn-danger {
-  background-color: #dc3545 !important;
+  background-color: #BD0707 !important;
 }
 
 .gambarbawah{
@@ -60,4 +60,65 @@ a{
   color: #BD0707;
   background-color: #efa9b0;
   border-radius: 0px 0px .25rem .25rem;
+}
+
+.form-control{
+  background-color: #f9d9d9;
+  border: 2px solid #BD0707;
+}
+
+.btn {
+  border: 3px solid;
+}
+
+.modal-sm {
+  max-width: 360px;
+}
+
+.modal-content{
+  background-color: transparent;
+  border: none;
+}
+
+.ronded-circle.nav-item.dropdown {
+  background-image: url("../components/img/profile.png");
+  background-size: cover;
+  border-radius: 19px;
+  border: 2px solid red;
+}
+
+.dropdown-menu.show {
+  width: 200px;
+}
+
+.nav-link,.nav-link:hover,.nav-link:active,.nav-link:visited{
+  color: transparent;
+}
+
+.card-text{
+  color: black;
+}
+
+.coklat{
+  color:#562424 !important;
+  margin:0px;
+}
+
+.btn-outline-primary{
+  border:none;
+  padding:0px;
+  margin:10px;
+}
+
+.btn-check:checked+.btn-outline-primary {
+  background-image: url("../components/img/centang.png");
+  background-color: transparent;
+}
+
+.status{
+  font-size: small;
+  color: #549af3;
+  background-color: #549af338;
+  width: 100px;
+  text-align: center;
 }

@@ -78,7 +78,7 @@ return (
         </Form>
       </Modal.Body>
       <Modal.Footer className="justify-content-center border-0">
-        <p className="text-dark">Don't have an account ? Klik <a style={{color:'black'}} href='#' onClick={switchRegister} ><strong>Here</strong></a></p>
+        <p className="text-dark">Don't have an account ? Klik <a style={{color:'black'}} href='/' onClick={switchRegister} ><strong>Here</strong></a></p>
       </Modal.Footer>
       </div>
       <Register show={registerShow} onHide={() => setRegisterShow(false)} />

@@ -1,4 +1,4 @@
-import {Nav, Table,NavDropdown,Button, Modal} from "react-bootstrap";
+import {Nav, Table,NavDropdown,Button} from "react-bootstrap";
 import logo from "../../components/img/WaysBucks (1) 1.png";
 import {Link,useNavigate} from "react-router-dom";
 import itopping from "../../components/img/itopping.png";

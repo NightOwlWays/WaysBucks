@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import './styles/style.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Homepage,Profile,Detailproduct,Cart,Transaction,Addtoping,Addproduct} from "./pages";
-import { UserContext } from './context/userContext';
+
 
 function App() {
   return (

@@ -34,8 +34,8 @@ export default function Register(props) {
           <Form.Group className="mb-3" controlID="formBasicName">
             <Form.Control type="text" className="form-control" id="exampleInputName1" placeholder="Full Name"/>
           </Form.Group>
-          <Link to="/homepage">
-          <Button type="submit" className="btn-danger col-12 btn-primary ">Register</Button>
+          <Link to="/" onClick={switchLogin}>
+            <Button type="submit" className="btn-danger col-12 btn-primary ">Register</Button>
           </Link>
         </Form>
         </Modal.Body>

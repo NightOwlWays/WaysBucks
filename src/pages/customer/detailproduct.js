@@ -46,8 +46,11 @@ const Detailproduct = () => {
                     </Link>                    
                     <div class="d-flex justify-content-end col-6">
                     <Link to="/cart">
-                        <img src={keranjang} alt="logo" style={{maxWidth:"35px",marginRight:"40px"}}/>
-                    </Link> 
+                        <img src={keranjang} alt="logo" style={{maxWidth:"35px"}}/>
+                    </Link>
+                    <div className="ronded-circle" style={{background:"red",marginRight:"40px",height: "25px",color: "white",borderRadius: "8px"}}>
+                        <p></p> 
+                    </div> 
                         <NavDropdown className="ronded-circle" id={`offcanvasNavbarDropdown-expand-lg`}>
                         <Link to="/profile"> 
                             <NavDropdown.Item href="#action4"><img src={iprofile} alt="logo" style={{maxheight:"50px", marginRight:"20px"}}/> Profile</NavDropdown.Item>
